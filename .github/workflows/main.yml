@@ -19,13 +19,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install buildozer cython
-          sudo apt-get install -y \
-            openjdk-17-jdk build-essential git \
-            libsdl2-dev libsdl2-image-dev \
-            libsdl2-mixer-dev libsdl2-ttf-dev
+          sudo apt-get install -y openjdk-17-jdk build-essential git libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
 
       - name: Build APK
-        run: buildozer android debug
+        run: buildozer -v android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
