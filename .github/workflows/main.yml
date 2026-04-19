@@ -4,7 +4,6 @@ on:
     branches:
       - "**"
   workflow_dispatch:
-
 jobs:
   android:
     runs-on: ubuntu-latest
