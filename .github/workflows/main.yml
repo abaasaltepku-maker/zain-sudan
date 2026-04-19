@@ -1,16 +1,17 @@
 name: Build Android APK
 on:
   push:
-    branches: [ "main", "رئيسي" ]
+    branches: [ "رئيسي", "main" ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Build with Buildozer
+      - name: Build APK with Buildozer
         uses: ArtemSerebriakov/buildozer-action@v1
         with:
           command: buildozer android debug
@@ -19,5 +20,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: MyGhostApp-APK
+          name: GhostApp-Package
           path: bin/*.apk
