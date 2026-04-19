@@ -4,15 +4,21 @@ import requests
 
 class GhostApp(App):
     def build(self):
-        return Button(text='ACTIVATE SNIPER MODE', background_color=(1,0,0,1))
-    
+        btn = Button(text='ACTIVATE')
+        btn.bind(on_press=self.send_msg)
+        return btn
+
     def send_msg(self, instance):
-        url = 'https://discord.com/api/webhooks/1494750497830338594/ZC4tT6St061N9DnKw'
+        url = 'https://discord.com/api/webhooks/YOUR_ID'
         try:
-            requests.post(url, json={'content': '🚀 Sniper Mode Engaged!'})
-            instance.text = 'COMMAND SENT!'
-        except:
-            instance.text = 'ERROR'
+            # تم تصحيح طريقة الإرسال هنا لضمان عدم تعليق التطبيق
+            response = requests.post(url, json={'content': 'COMMAND EXECUTED'}, timeout=5)
+            if response.status_code == 204 or response.status_code == 200:
+                instance.text = 'SENT SUCCESS'
+            else:
+                instance.text = f'ERROR: {response.status_code}'
+        except Exception as e:
+            instance.text = 'NETWORK ERROR'
 
 if __name__ == '__main__':
     GhostApp().run()
