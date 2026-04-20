@@ -11,12 +11,10 @@ fullscreen = 0
 android.permissions = INTERNET,CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,ACCESS_FINE_LOCATION,RECORD_AUDIO
 android.api = 33
 android.minapi = 21
-android.ndk = 23b
+android.ndk = 25b
 android.skip_update = False
 android.accept_sdk_license = True
 android.archs = arm64-v8a
-android.gradle_dependencies = 'com.android.support:support-annotations:28.0.0'
-android.enable_androidx = True
 [buildozer]
 log_level = 2
 warn_on_root = 1
